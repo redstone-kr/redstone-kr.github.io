@@ -1,62 +1,68 @@
-# Astro Starter Kit: Blog
+# Astro Cartoon Portfolio
 
-```sh
-npm create astro@latest -- --template blog
+A modern, responsive portfolio website built with Astro 5, featuring a beautiful cartoon-style design with smooth animations, interactive project carousel, blog system, and comment integration.
+
+## Quick Deploy
+
+[![Deploy to Tencent Cloud](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?template=https://github.com/tomcomtang/astro-cartoon-portfolio&output-directory=./dist&build-command=npm%20run%20build&install-command=npm%20install&entry_from=childtom)
+
+## Preview
+
+You can preview the project online at:
+
+<https://astro-cartoon-portfolio.edgeone.app/>
+
+## Features
+
+- Cartoon-style Astro portfolio, responsive layout
+- Blog: Markdown posts, excerpts, tags, search, reading-time display, optional cover images
+- Config-driven content: site copy, project list, post images, social links
+- Comments via Giscus, SEO-friendly pages, smooth scroll animations
+
+## Tech Stack
+
+- Astro 5.x, TypeScript, Vite
+- Styling: custom CSS
+- Content: Markdown with Astro Content Collections
+- Comments: Giscus (React component)
+
+## Getting Started
+
+```bash
+git clone https://github.com/tomcomtang/astro-cartoon-portfolio.git
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Paths & Purpose
 
-Features:
+- `src/pages/index.astro` – Home (hero, projects, highlights)
+- `src/pages/posts.astro` – Blog list with search/tag filter
+- `src/pages/posts/[slug].astro` – Blog detail with comments
+- `src/pages/about.astro` – About/skills section
+- `src/pages/contact.astro` – Contact info and social links
+- `src/pages/comments.astro` – Giscus standalone page
+- `src/content/posts/` – Markdown blog posts
+- `src/config/site.ts` – Site copy, nav, social, hero/about/contact text
+- `src/config/projects.ts` – Project entries (title, desc, tech, links, images)
+- `src/config/posts-images.ts` – Post slug → cover image mapping
+- `src/styles/` – Page-level styles (home, posts list/detail, contact, transitions)
+- `public/` – Static assets (images, svg, fonts)
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## Environment Variables
 
-## 🚀 Project Structure
+Set these for Giscus comments:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+```env
+PUBLIC_GISCUS_REPO=your-username/your-repo
+PUBLIC_GISCUS_REPO_ID=your-repo-id
+PUBLIC_GISCUS_CATEGORY_ID=your-category-id
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## License
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+MIT
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Author
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+tomcomtang

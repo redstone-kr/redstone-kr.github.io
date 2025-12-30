@@ -1,5 +1,5 @@
 {
-  "name": "redstone-kr.github.io",
+  "name": "astro-cartoon-portfolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,10 +9,28 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/rss": "^4.0.14",
-    "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.16.6",
-    "sharp": "^0.34.3"
+    "@astrojs/react": "^4.4.2",
+    "@edgeone/astro": "1.0.6",
+    "@giscus/react": "^3.1.0",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "astro": "6.0.0-alpha.0",
+    "framer-motion": "^12.23.25",
+    "gray-matter": "^4.0.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "unified": "^11.0.5"
+  },
+  "overrides": {
+    "astro": "6.0.0-alpha.0",
+    "@astrojs/vercel": {
+      "astro": "6.0.0-alpha.0"
+    },
+    "@edgeone/astro": {
+      "astro": "6.0.0-alpha.0"
+    }
   }
 }
