@@ -1,262 +1,161 @@
-<div align="center">
+# Astro Modular
 
-## merox-erudite
+A flexible [Astro](https://astro.build) blog theme designed for [Obsidian](https://obsidian.md) users. 
 
-[![License](https://img.shields.io/github/license/meroxdotdev/merox-erudite?color=0a0a0a&logo=github&logoColor=fff&style=for-the-badge)](LICENSE)
+[![Alt](https://github.com/user-attachments/assets/612b2171-d141-412b-a891-5b1caa1447b8 "Astro Modular theme shown off in 3 screenshots, with the left screenshot showing the homepage, the top right showing the bottom of a post, and the bottom right showing a minimal homepage")](https://astro.build/themes/details/astro-modular/)
 
-</div>
+## Made with Vault CMS
 
-**merox-erudite** is a customized version of the [astro-erudite](https://github.com/jktrn/astro-erudite) theme, enhanced with additional features and modifications for a more complete blogging experience.
+Use Obsidian as a CMS with [Vault CMS](https://github.com/davidvkimball/vault-cms).
 
-> **📖 Want to learn more about the original theme?**  
-> This theme is based on [astro-erudite](https://github.com/jktrn/astro-erudite) by [@jktrn](https://github.com/jktrn). For detailed documentation, architecture details, and the original design philosophy, visit the [official astro-erudite repository](https://github.com/jktrn/astro-erudite).
+![Alt](https://github.com/user-attachments/assets/3db459e6-6b9a-4c37-b86d-0f661e88e204 "Astro Modular Obsidian vault")
 
-## 🎯 What's Different from astro-erudite?
+## Stats
 
-This theme includes several enhancements and customizations:
+![Alt](https://repobeats.axiom.co/api/embed/66fe41c94d95b32b92c1a2fd8d6dc83d386bc10a.svg "Repobeats analytics image")
 
-### ✨ New Features
+![Alt](https://github.com/user-attachments/assets/e09c8ee1-6f91-46d6-84a5-e2d8a35c1e14 "Pagespeed scores")
 
-- **Newsletter Integration** - Brevo (formerly Sendinblue) newsletter subscription with GDPR-compliant consent
-- **Disqus Comments** - Integrated comment system with lazy loading and view transition support
-- **Google AdSense** - Built-in AdSense component with view transition support
-- **Analytics Support** - Google Analytics and Umami Analytics integration
-- **SEO Enhancements** - FAQ Schema and HowTo Schema components for better search visibility
-- **Enhanced Homepage** - Custom hero section with experience timeline and skills showcase
-- **Improved Typography** - Geist font family integration
-- **Better Accessibility** - Enhanced focus indicators and screen reader support
 
-### 🎨 Design Improvements
+### Status
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3f849f7a-71e6-463b-84af-01c523012348/deploy-status)](https://app.netlify.com/sites/astro-modular/deploys)
+[![GitHub last commit](https://img.shields.io/github/last-commit/davidvkimball/astro-modular)](https://github.com/davidvkimball/astro-modular)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/davidvkimball/astro-modular)](https://github.com/davidvkimball/astro-modular)
 
-- Custom color palette optimized for readability
-- Improved contrast ratios for better accessibility
-- Enhanced dark mode support
-- Modern hero section with background image support
-- Experience timeline component
-- Skills showcase with animated tech badges
+### Tech Stack
+[![Astro](https://img.shields.io/badge/Astro-5.15.1-FF5D01?logo=astro&logoColor=white)](https://astro.build/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-20.3.0-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![pnpm](https://img.shields.io/badge/pnpm-7.1.0-F69220?logo=pnpm&logoColor=white)](https://pnpm.io/)
+[![Obsidian](https://img.shields.io/badge/Obsidian-1.10.3-7C3AED?logo=obsidian&logoColor=white)](https://obsidian.md/)
 
-### 🔧 Technical Enhancements
+## Why Astro Modular?
 
-- Updated dependencies to latest versions
-- Improved error handling and error boundaries
-- Better view transition support
-- Optimized performance with lazy loading
-- Enhanced TypeScript types
+- **Obsidian As A CMS**: Works with Obsidian out of the box (built upon [Vault CMS](https://github.com/davidvkimball/vault-cms)), write and publish instantly
+- **Highly Customizable**: Every feature can be enabled/disabled independently
+- **Performance-Focused**: Assets are highly optimized for lightning-fast loading
+- **SEO-Ready**: Automatic sitemap, RSS feed, and Open Graph image generation
 
-## 📋 Features
+## Features
 
-All features from astro-erudite plus:
+- [x] **Custom Themes** 
+- [x] **Feature Toggle Control** 
+- [x] **Dark/Light Mode** 
+- [x] **Search & Command Palette** 
+- [x] **Wikilinks & Linked Mentions** 
+- [x] **Obsidian-Style Callouts**
+- [x] **Obsidian Embeds Files**
+- [x] **Folder-Based Posts** 
+- [x] **Multiple Content Types**
+- [x] **Image Optimization** 
+- [x] **Automatic Feed Generation**
+- [x] **Table of Contents** 
+- [x] **Smooth Scroll & Page Transitions** 
+- [x] **Image Gallery & Lightbox** 
+- [x] **Reading Time & Word Count** 
+- [x] **Tagging**
+- [x] **Graph View**
+- [x] **Mermaid Diagrams**
+- [x] **LaTeX & Math Rendering** 
+- [x] **Custom Typography**
+- [x] **Profile Picture** 
+- [x] **Comments**
 
-- [Astro](https://astro.build/)'s [Islands](https://docs.astro.build/en/concepts/islands/) architecture
-- [shadcn/ui](https://ui.shadcn.com/) with [Tailwind](https://tailwindcss.com/) styling
-- [Expressive Code](https://expressive-code.com/) for code blocks
-- Blog authoring with [MDX](https://mdxjs.com/) and $\LaTeX$ math rendering
-- Astro [View Transitions](https://docs.astro.build/en/guides/view-transitions/)
-- SEO optimization with granular metadata
-- [RSS](https://en.wikipedia.org/wiki/RSS) feed and sitemap generation
-- Subpost support for series content
-- Author profiles and multi-author support
-- Project tags and categorization
-- **Newsletter subscription** (Brevo integration)
-- **Disqus comments** (optional)
-- **Google AdSense** support (optional)
-- **Analytics** (Google Analytics & Umami)
+## Quick Start
 
-## 🚀 Getting Started
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/davidvkimball/astro-modular)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/davidvkimball/astro-modular)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/davidvkimball/astro-modular)
 
-1. **Use this template** - Click the "Use this template" button to create a new repository
+### Get the Code
 
-2. **Clone the repository:**
+Choose one of the following methods to get started:
+
+#### Option 1: Use GitHub Template (Recommended)
+
+1. Click the **"Use this template"** button on the [repository page](https://github.com/davidvkimball/astro-modular)
+2. Select **"Create a new repository"**
+3. Choose your repository name and settings
+4. Click **"Create repository from template"**
+5. Clone your new repository:
    ```bash
-   git clone https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME].git
-   cd [YOUR_REPO_NAME]
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
    ```
 
-3. **Install dependencies:**
+#### Option 2: Fork the Repository
+
+1. Click the **"Fork"** button on the [repository page](https://github.com/davidvkimball/astro-modular)
+2. Choose where to fork the repository (your personal account or organization)
+3. Clone your forked repository:
    ```bash
-   npm install
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
    ```
 
-4. **Configure environment variables** (optional):
-   Create a `.env` file with:
-   ```env
-   # Newsletter (Brevo)
-   BREVO_API_KEY=your-api-key
-   BREVO_LIST_ID=your-list-id
-   BREVO_TEMPLATE_ID=5
+### Prerequisites
+- Node.js 18.20.8
+- pnpm 7.1.0 or npm 9.6.5
 
-   # Analytics
-   PUBLIC_GOOGLE_ANALYTICS_ID=your-ga-id
-   PUBLIC_UMAMI_WEBSITE_ID=your-umami-id
+> [!NOTE]
+> While this theme works great with any markdown editor, it's specifically optimized for Obsidian use. See the [Astro Suite Vault Guide](src/content/posts/obsidian-vault-guide.md) for Obsidian-specific features.
 
-   # Disqus
-   PUBLIC_DISQUS_SHORTNAME=your-shortname
-   ```
+### Setup
 
-5. **Start the development server:**
+1. **Install pnpm (if you don't have it):**
    ```bash
-   npm run dev
+   npm install -g pnpm
    ```
 
-6. **Open your browser** and visit `http://localhost:1234`
+2. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
 
-## ⚙️ Configuration
+3. **Preview:**
+   ```bash
+   pnpm dev
+   ```
+   Your blog will be available at `http://localhost:5000`
 
-### Site Configuration
+4. **Build for production:**
+   ```bash
+   pnpm build
+   ```
 
-Edit `src/consts.ts` to customize:
+### Configuration
 
-```ts
-export const SITE: Site = {
-  title: 'Your Site Name',
-  description: 'Your site description',
-  href: 'https://yourdomain.com',
-  author: 'your-author-id',
-  locale: 'en-US',
-  featuredPostCount: 2,
-  postsPerPage: 6,
-}
+Edit `src/config.ts` to customize your site - change the theme, enable/disable features, and configure all settings.
 
-export const NAV_LINKS: SocialLink[] = [
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-]
+## Deployment
 
-export const SOCIAL_LINKS: SocialLink[] = [
-  { href: 'https://github.com/username', label: 'GitHub' },
-  // ... more links
-]
-```
+Set your deployment platform once in `src/config.ts` under `deployment.platform` ("netlify", "vercel", "github-pages", or "cloudflare-workers"). The build process automatically generates the correct configuration files for your chosen platform - no environment variables needed!
 
-### Newsletter Setup
+## Documentation
 
-1. Sign up for [Brevo](https://www.brevo.com/) (free tier available)
-2. Get your API key from Settings → API Keys
-3. Create a list and get the List ID
-4. Add environment variables to `.env`
+For detailed guides, see the included blog posts:
+- **[Getting Started](src/content/posts/getting-started.md)** - complete setup and workflow guide
+- **[Formatting Reference](src/content/posts/formatting-reference.md)** - comprehensive formatting reference  
+- **[Astro Suite Vault Guide](src/content/posts/astro-suite-vault-modular-guide.md)** - Obsidian vault walkthrough
+- **[Obsidian Embeds Demo](src/content/posts/obsidian-embeds-demo.md)** - Obsidian embed examples
 
-### Disqus Setup
+**For AI Agents & Developers:** See [AGENTS.md](AGENTS.md) for comprehensive technical documentation.
 
-1. Create a [Disqus](https://disqus.com/) account
-2. Register your site to get a shortname
-3. Add `PUBLIC_DISQUS_SHORTNAME` to `.env`
+## Star History
 
-### AdSense Setup
+[![Star History Chart](https://api.star-history.com/svg?repos=davidvkimball/astro-modular&type=date&legend=top-left)](https://www.star-history.com/#davidvkimball/astro-modular&type=date&legend=top-left)
 
-1. Edit `src/components/AdSense.astro`
-2. Replace `ca-pub-XXXXX` with your AdSense publisher ID
-3. Replace `data-ad-slot` with your ad slot ID
+## Acknowledgments 
 
-## 📝 Adding Content
+[Spaceship Astro theme](https://github.com/aitorllj93/astro-theme-spaceship) for the graph view functionality upon which this theme's is based.
 
-### Blog Posts
+[ogImage.click](https://ogimage.click/) to generate the open graph image used for this theme.
 
-Add MDX files to `src/content/blog/`:
+## Contributing
 
-```yaml
----
-title: 'Your Post Title'
-description: 'A brief description'
-date: 2024-01-01
-tags: ['tag1', 'tag2']
-image: './image.png'
-authors: ['author-id']
-draft: false
----
-```
+This is an open-source project. Feel free to submit feature requests, report bugs, or contribute improvements.
 
-### Authors
+## License
 
-Add author files to `src/content/authors/`:
-
-```yaml
----
-name: 'Author Name'
-pronouns: 'they/them'
-avatar: 'https://gravatar.com/avatar/...'
-bio: 'Author bio'
-website: 'https://example.com'
-github: 'https://github.com/username'
----
-```
-
-## 🎨 Customization
-
-### Colors
-
-Edit `src/styles/global.css` to customize the color palette:
-
-```css
-:root {
-  --primary: hsl(214 95% 52%);
-  /* ... more colors */
-}
-
-[data-theme='dark'] {
-  --primary: hsl(214 95% 62%);
-  /* ... more colors */
-}
-```
-
-### Fonts
-
-The theme uses Geist font family. Font files are in `public/fonts/`. To change fonts:
-
-1. Replace font files in `public/fonts/`
-2. Update `@font-face` declarations in `src/styles/global.css`
-3. Update `--font-sans` and `--font-mono` in the theme configuration
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 💻 Development Transparency
-
-**Important Note:** This theme was developed exclusively using [Cursor](https://cursor.sh/) (an AI-powered code editor) with paid subscription. I am not a programmer by profession—I'm a System Administrator with a passion for sharing knowledge through blogging.
-
-The development process involved:
-- Iterative conversations with Cursor's AI assistant
-- Learning and understanding code through AI explanations
-- Testing and refining features with AI guidance
-- Building on the excellent foundation of astro-erudite
-
-This transparency is important because:
-1. **Honesty** - You should know how this theme was created
-2. **Accessibility** - It demonstrates that you don't need to be a professional developer to create useful tools
-3. **AI-Assisted Development** - Shows the potential of AI coding assistants for non-programmers
-
-While the code was written with AI assistance, all decisions about features, design, and implementation were made by me based on my needs as a blogger. The theme has been tested and is fully functional.
-
-## 🙏 Credits
-
-### Original Theme
-
-This theme is a fork and customization of **[astro-erudite](https://github.com/jktrn/astro-erudite)** by [@jktrn](https://github.com/jktrn).
-
-For comprehensive documentation, detailed feature explanations, and the original theme's design philosophy, please visit the [official astro-erudite repository](https://github.com/jktrn/astro-erudite).
-
-### Additional Credits
-
-- Originally inspired by [Astro Micro](https://astro-micro.vercel.app/) by [trevortylerlee](https://github.com/trevortylerlee)
-- Developed with [Cursor](https://cursor.sh/) AI coding assistant
-
-## 📚 Resources
-
-### Official Theme Documentation
-
-- **[astro-erudite Repository](https://github.com/jktrn/astro-erudite)** - Original theme with comprehensive documentation
-- **[astro-erudite Live Demo](https://astro-erudite.vercel.app/)** - See the original theme in action
-
-### Technology Documentation
-
-- [Astro Documentation](https://docs.astro.build/)
-- [Tailwind CSS](https://tailwindcss.com/docs)
-- [shadcn/ui](https://ui.shadcn.com/)
-- [MDX Documentation](https://mdxjs.com/)
-
----
-
-Built with ❤️ by [merox](https://merox.dev)
-
-*Developed using [Cursor](https://cursor.sh/) AI coding assistant*
-
+[MIT License](https://github.com/davidvkimball/astro-modular?tab=MIT-1-ov-file)

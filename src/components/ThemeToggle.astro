@@ -1,72 +1,49 @@
 ---
-import { Button } from '@/components/ui/button'
-import { Icon } from 'astro-icon/components'
+import Icon from './Icon.astro';
 ---
-
-<Button
+<!-- Theme toggle component -->
+<button
   id="theme-toggle"
-  variant="ghost"
-  size="icon"
-  title="Toggle theme"
-  className="-my-2 -me-2 size-8"
+  class="p-2 text-primary-500 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-800 rounded-lg transition-colors duration-200"
+  aria-label="Toggle between light and dark theme"
 >
-  <Icon name="lucide:sun" class="size-4 dark:hidden" />
-  <Icon name="lucide:moon" class="absolute hidden size-4 dark:block" />
-  <span class="sr-only">Toggle theme</span>
-</Button>
-
-<script is:inline data-astro-rerun>
-  (() => {
-    const theme = (() => {
-      const stored = localStorage?.getItem('theme') ?? ''
-      if (['dark', 'light'].includes(stored)) return stored
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light'
-    })()
-
-    document.documentElement.setAttribute('data-theme', theme)
-    window.localStorage.setItem('theme', theme)
-  })()
-</script>
+  <Icon name="sun" class="w-5 h-5 dark:hidden" />
+  <Icon name="moon" class="w-5 h-5 hidden dark:block" />
+</button>
 
 <script>
-  function handleToggleClick() {
-    const element = document.documentElement
-    const currentTheme = element.getAttribute('data-theme')
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+  // Global theme toggle function
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.classList.contains('dark');
+    const newTheme = isDark ? 'light' : 'dark';
 
-    element.classList.add('[&_*]:transition-none')
-    element.setAttribute('data-theme', newTheme)
-    window.getComputedStyle(element).getPropertyValue('opacity')
+    // Update theme
+    localStorage.setItem('theme', newTheme);
+    html.classList.remove('light', 'dark');
+    html.classList.add(newTheme);
 
-    requestAnimationFrame(() => {
-      element.classList.remove('[&_*]:transition-none')
-    })
+    // Favicon is handled by system theme detection, not manual theme changes
 
-    localStorage.setItem('theme', newTheme)
+    // Icons are now static SVG - no re-initialization needed
+
+    // Dispatch theme change event
+    window.dispatchEvent(new CustomEvent('themechange', {
+      detail: { theme: newTheme }
+    }));
   }
+
+  // Make toggle function globally accessible
+  (window as any).toggleTheme = toggleTheme;
 
   function initThemeToggle() {
-    document
-      .getElementById('theme-toggle')
-      ?.addEventListener('click', handleToggleClick)
+    const themeToggle = document.getElementById('theme-toggle');
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+    }
   }
 
-  initThemeToggle()
-
-  document.addEventListener('astro:after-swap', () => {
-    const storedTheme = localStorage.getItem('theme') || 'light'
-    const element = document.documentElement
-
-    element.classList.add('[&_*]:transition-none')
-    window.getComputedStyle(element).getPropertyValue('opacity')
-    element.setAttribute('data-theme', storedTheme)
-
-    requestAnimationFrame(() => {
-      element.classList.remove('[&_*]:transition-none')
-    })
-
-    initThemeToggle()
-  })
+  // Initialize on load
+  document.addEventListener('DOMContentLoaded', initThemeToggle);
 </script>

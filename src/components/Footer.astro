@@ -1,106 +1,154 @@
 ---
-import { SOCIAL_LINKS, NAV_LINKS, SITE } from '@/consts'
-import SocialIcons from './SocialIcons.astro'
-import Link from '@/components/Link.astro'
-import Newsletter from './react/Newsletter'
-import { ErrorBoundary } from './react/ErrorBoundary'
-import { Icon } from 'astro-icon/components'
+import { siteConfig } from '@/config';
+import Icon from './Icon.astro';
 
-const isExternalLink = (href: string) => {
-  return href.startsWith('http')
-}
+const currentYear = new Date().getFullYear();
+const socialLinks = (siteConfig.navigation.social || []).filter((social) => social && social.url && social.icon);
+const showSocialIcons = siteConfig.footer.showSocialIconsInFooter && socialLinks.length > 0;
+const showProfilePicture = siteConfig.profilePicture.enabled && siteConfig.profilePicture.placement === 'footer';
+const profilePicture = siteConfig.profilePicture;
+const footerEnabled = siteConfig.footer.enabled;
+
+// Replace placeholder with actual author name
+const footerContent = siteConfig.footer.content.replace('{author}', siteConfig.author);
+
+// Size and style classes for profile picture
+const getProfilePictureClasses = (size: string, style: string) => {
+  let sizeClasses = '';
+  switch (size) {
+    case 'sm': sizeClasses = 'h-8'; break;
+    case 'lg': sizeClasses = 'h-16'; break;
+    default: sizeClasses = 'h-12'; // md
+  }
+  
+  let styleClasses = '';
+  switch (style) {
+    case 'circle': styleClasses = 'rounded-full object-cover border-2 border-primary-200 dark:border-primary-700'; break;
+    case 'square': styleClasses = 'rounded-lg object-cover border-2 border-primary-200 dark:border-primary-700'; break;
+    default: styleClasses = 'object-contain'; // none
+  }
+  
+  return `${sizeClasses} ${styleClasses}`;
+};
 ---
 
-<footer class="bg-background/80 border-t border-border/50 backdrop-blur-md">
-  <div class="w-full px-4 py-8 sm:py-10">
-    <div class="flex flex-col gap-8 max-w-3xl mx-auto">
-      <!-- Newsletter Section -->
-      <div class="grid md:grid-cols-[1fr_auto] gap-6 py-6 md:py-8 items-center">
-        <div class="text-left">
-          <div class="flex items-center gap-2 mb-3">
-            <Icon name="lucide:mail" class="size-5 text-primary shrink-0" />
-            <h3 class="text-lg font-semibold text-foreground">Stay Updated</h3>
+<footer class="bg-white dark:bg-primary-950 mt-auto">
+  <div class="mx-auto px-4 sm:px-6 lg:px-8 py-8" style={`max-width: ${siteConfig.layout.contentWidth}`}>
+    <!-- Profile picture above footer content when footer is enabled -->
+    {showProfilePicture && footerEnabled && (
+      <div class="mb-4 flex justify-start">
+        {profilePicture.url ? (
+          <a 
+            href={profilePicture.url}
+            class="inline-block hover:opacity-80 transition-opacity"
+            target={profilePicture.url.startsWith('http') ? '_blank' : undefined}
+            rel={profilePicture.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+          >
+            <img
+              src={profilePicture.image}
+              alt={profilePicture.alt}
+              class={getProfilePictureClasses(profilePicture.size, profilePicture.style)}
+            />
+          </a>
+        ) : (
+          <img
+            src={profilePicture.image}
+            alt={profilePicture.alt}
+            class={getProfilePictureClasses(profilePicture.size, profilePicture.style)}
+          />
+        )}
+      </div>
+    )}
+
+    <!-- Mobile: Social icons above footer content, centered -->
+    {showSocialIcons && (
+      <div class="flex justify-center md:hidden mb-4">
+        <div class="flex items-center space-x-4">
+          {socialLinks.map((social) => (
+            <a
+              href={social.url}
+              title={social.title}
+              class="text-primary-500 hover:text-highlight-600 dark:text-primary-400 dark:hover:text-highlight-400 transition-colors duration-200"
+              target="_blank"
+            >
+              <Icon name={social.icon} class="w-5 h-5" />
+              <span class="sr-only">{social.title}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+    
+    <!-- Footer content and social icons on same line -->
+    {footerEnabled && (
+      <div class={`text-center ${showSocialIcons ? 'md:flex md:justify-between md:items-center' : ''}`}>
+        <p class="text-xs text-primary-500 dark:text-primary-400" set:html={footerContent}>
+        </p>
+        
+        <!-- Desktop: Social icons on same line as footer content -->
+        {showSocialIcons && (
+          <div class="hidden md:flex items-center space-x-4">
+            {socialLinks.map((social) => (
+              <a
+                href={social.url}
+                title={social.title}
+                class="text-primary-500 hover:text-highlight-600 dark:text-primary-400 dark:hover:text-highlight-400 transition-colors duration-200"
+                target="_blank"
+              >
+                <Icon name={social.icon} class="w-5 h-5" />
+                <span class="sr-only">{social.title}</span>
+              </a>
+            ))}
           </div>
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            Get the latest posts delivered to your inbox.
-          </p>
-        </div>
-        <div class="w-full md:w-auto md:flex-shrink-0">
-          <ErrorBoundary client:load>
-            <Newsletter client:load />
-          </ErrorBoundary>
-        </div>
+        )}
       </div>
+    )}
 
-      <!-- Subtle Separator -->
-      <div class="h-px bg-border/30" aria-hidden="true"></div>
-
-      <!-- Main Footer Content -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        <!-- Navigation -->
-        <div>
-          <h4 class="text-sm font-semibold mb-3 text-foreground">Navigation</h4>
-          <nav class="flex flex-col gap-2">
-            {NAV_LINKS.map((item) => {
-              const isExternal = isExternalLink(item.href)
-              const isInsideLink = item.label.toLowerCase() === 'inside'
-              return (
-                <Link 
-                  href={item.href} 
-                  class={isInsideLink 
-                    ? "text-sm text-primary hover:text-primary/80 capitalize transition-colors flex items-center gap-1.5 group font-medium" 
-                    : "text-sm text-muted-foreground hover:text-primary capitalize transition-colors flex items-center gap-1.5 group"}
-                >
-                  <span>{item.label}</span>
-                  {isExternal && (
-                    <Icon 
-                      name="lucide:external-link" 
-                      class={isInsideLink 
-                        ? "size-3 opacity-80 flex-shrink-0 text-primary group-hover:opacity-100 transition-opacity" 
-                        : "size-3 opacity-70 flex-shrink-0 group-hover:opacity-100 group-hover:text-primary transition-colors"} 
-                      aria-hidden="true"
-                    />
-                  )}
-                </Link>
-              )
-            })}
-          </nav>
-        </div>
-
-        <!-- Legal -->
-        <div>
-          <h4 class="text-sm font-semibold mb-3 text-foreground">Legal</h4>
-          <nav class="flex flex-col gap-2">
-            <Link href="/privacy" class="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" class="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Terms of Service
-            </Link>
-          </nav>
-        </div>
-
-        <!-- Connect -->
-        <div>
-          <h4 class="text-sm font-semibold mb-3 text-foreground">Connect</h4>
-          <SocialIcons links={SOCIAL_LINKS} />
-        </div>
+    <!-- When footer is disabled: Profile picture aligned with social icons OR just centered social icons -->
+    {!footerEnabled && (
+      <div class={`text-center ${showProfilePicture && showSocialIcons ? 'md:flex md:justify-between md:items-center' : ''}`}>
+        {showProfilePicture ? (
+          <div class="flex justify-start">
+            {profilePicture.url ? (
+              <a 
+                href={profilePicture.url}
+                class="inline-block hover:opacity-80 transition-opacity"
+                target={profilePicture.url.startsWith('http') ? '_blank' : undefined}
+                rel={profilePicture.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
+                <img
+                  src={profilePicture.image}
+                  alt={profilePicture.alt}
+                  class={getProfilePictureClasses(profilePicture.size, profilePicture.style)}
+                />
+              </a>
+            ) : (
+              <img
+                src={profilePicture.image}
+                alt={profilePicture.alt}
+                class={getProfilePictureClasses(profilePicture.size, profilePicture.style)}
+              />
+            )}
+          </div>
+        ) : null}
+        
+        <!-- Social icons: centered when no profile picture, or aligned when profile picture exists -->
+        {showSocialIcons && (
+          <div class={`flex items-center space-x-4 ${showProfilePicture ? 'hidden md:flex' : 'justify-center'}`}>
+            {socialLinks.map((social) => (
+              <a
+                href={social.url}
+                title={social.title}
+                class="text-primary-500 hover:text-highlight-600 dark:text-primary-400 dark:hover:text-highlight-400 transition-colors duration-200"
+                target="_blank"
+              >
+                <Icon name={social.icon} class="w-5 h-5" />
+                <span class="sr-only">{social.title}</span>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
-
-      <!-- Separator -->
-      <div class="h-px bg-border/60" aria-hidden="true"></div>
-
-      <!-- Bottom Section -->
-      <div class="flex flex-col items-center gap-2 sm:flex-row sm:justify-between text-sm text-muted-foreground">
-        <div class="text-center sm:text-left">
-          &copy; {new Date().getFullYear()} {SITE.title}. All rights reserved.
-        </div>
-        <div class="text-xs text-muted-foreground/80">
-          <span>
-            Theme: <a href="https://github.com/meroxdotdev/merox-erudite" target="_blank" rel="noopener noreferrer" class="underline hover:text-foreground transition-colors">merox-erudite</a>
-          </span>
-        </div>
-      </div>
-    </div>
+    )}
   </div>
 </footer>
