@@ -32,7 +32,7 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
     const brevoApiKey = env.BREVO_API_KEY as string
     const brevoListId = env.BREVO_LIST_ID as string
     const brevoTemplateId = env.BREVO_TEMPLATE_ID || '5'
-    const siteUrl = env.SITE_URL || 'https://yourdomain.com'
+    const siteUrl = env.SITE_URL || 'https://redstone.kr'
 
     if (!brevoApiKey) {
       console.error('BREVO_API_KEY is not configured')

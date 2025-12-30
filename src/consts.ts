@@ -7,7 +7,7 @@ export const SITE: Site = {
   description:
     'A brief description of your blog. This will be used in meta tags and social sharing.',
   href: 'https://redstone.kr',
-  author: 'your-author-id',
+  author: 'johoon',
   defaultLocale: 'ko_KR',
   locale: 'ko_KR',
   featuredPostCount: 2,
