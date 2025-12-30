@@ -6,6 +6,7 @@ import edgeoneAdapter from '@edgeone/astro';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://redstone-kr.github.io',
   adapter: edgeoneAdapter(),
   output: 'static',
   integrations: [react()]
