@@ -12,21 +12,28 @@
       "type": "post",
       "title": "Getting Started",
       "slug": "getting-started",
-      "connections": 6
+      "connections": 11
     },
     {
       "id": "obsidian-embeds-demo",
       "type": "post",
       "title": "Obsidian Embeds Demo",
       "slug": "obsidian-embeds-demo",
-      "connections": 0
+      "connections": 3
     },
     {
       "id": "sample-folder-based-post",
       "type": "post",
       "title": "Sample Folder-Based Post",
       "slug": "sample-folder-based-post",
-      "connections": 0
+      "connections": 1
+    },
+    {
+      "id": "test",
+      "type": "post",
+      "title": "Test",
+      "slug": "test",
+      "connections": 10
     },
     {
       "id": "vault-cms-guide",
@@ -116,12 +123,62 @@
       "source": "getting-started",
       "target": "formatting-reference",
       "type": "link"
+    },
+    {
+      "source": "test",
+      "target": "getting-started",
+      "type": "link"
+    },
+    {
+      "source": "test",
+      "target": "getting-started",
+      "type": "link"
+    },
+    {
+      "source": "test",
+      "target": "sample-folder-based-post",
+      "type": "link"
+    },
+    {
+      "source": "test",
+      "target": "vault-cms-guide",
+      "type": "link"
+    },
+    {
+      "source": "test",
+      "target": "obsidian-embeds-demo",
+      "type": "link"
+    },
+    {
+      "source": "test",
+      "target": "getting-started",
+      "type": "link"
+    },
+    {
+      "source": "test",
+      "target": "getting-started",
+      "type": "link"
+    },
+    {
+      "source": "test",
+      "target": "getting-started",
+      "type": "link"
+    },
+    {
+      "source": "test",
+      "target": "obsidian-embeds-demo",
+      "type": "link"
+    },
+    {
+      "source": "test",
+      "target": "obsidian-embeds-demo",
+      "type": "link"
     }
   ],
   "metadata": {
-    "totalPosts": 5,
-    "totalConnections": 16,
+    "totalPosts": 6,
+    "totalConnections": 26,
     "maxNodesApplied": false,
-    "originalNodeCount": 5
+    "originalNodeCount": 6
   }
 }
