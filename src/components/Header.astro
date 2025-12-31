@@ -41,12 +41,15 @@ const paletteIcon = allSectionsDisabled ? 'search' : 'command';
               src={profilePicture.image}
               alt={profilePicture.alt}
               class={getHeaderProfilePictureClasses(profilePicture.style)}
+              style="display:inline;"
             />
           ) : (
             <span class="font-semibold text-primary-900 dark:text-primary-50">
               {siteConfig.title}
             </span>
           )}
+          <span class="font-semibold text-primary-900 dark:text-primary-50" style="
+    position: relative; top: 2px; margin: 0 0 0 4px;">{siteConfig.title}</span>
         </a>
       </div>
 
